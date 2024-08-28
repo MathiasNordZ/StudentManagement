@@ -13,6 +13,13 @@ public class Student {
     private String academicField;
     private String studentName;
 
+    /**
+     * Constructor for Student
+     * @param providedStudentName
+     * @param providedStudentAge
+     * @param providedStudentNumber
+     * @param providedStudyProgram
+     */
     public Student(String providedStudentName, int providedStudentAge, int providedStudentNumber, String providedStudyProgram)
     {
         setStudentName(providedStudentName);
@@ -21,6 +28,12 @@ public class Student {
         setAcademicField(providedStudyProgram);
     }
 
+    /**
+     * Constructor for Student
+     * @param providedStudentName
+     * @param providedStudentAge
+     * @param providedStudentNumber
+     */
     public Student(String providedStudentName, int providedStudentAge, int providedStudentNumber)
     {
         setStudentName(providedStudentName);
@@ -28,34 +41,44 @@ public class Student {
         setStudentNumber(providedStudentNumber);
     }
 
+    /**
+     * Constructor for Student, containing no parameters
+     */
     public Student() {
 
     }
 
-    // Get method for age.
+    /**
+     * Method to return age
+     * @return age
+     */
     public int getAge() {
         return age;
     }
 
-    // Get method for student name.
+    /**
+     * Method to return studentName
+     * @return studentName
+     */
     public String getStudentName() {
         return studentName;
     }
 
-    // Get method for academic field.
+    /**
+     * Method to return academicField
+     * @return academicField
+     */
     public String getAcademicField() {
         return academicField;
     }
 
-    // Get method for student number.
+    /**
+     * Method to return studentNumber
+     * @return studentNumber
+     */
     public int getStudentNumber() {
         return studentNumber;
     }
-
-    // Set method for age.
-    // Sjekk før du setter verdi
-    // Hvis riktig - sett
-    // Ellers avbryt objekt opprettelse
 
     /**
      * Used to set age of the student in new student object.
@@ -66,46 +89,58 @@ public class Student {
      */
     public void setAge(int providedAge)
     {
-
-        // blokke for å prøve
-        // kaster unntak
-        if(providedAge >= 17)
+        // Check if provided age is 17, or above.
+        if(providedAge < 17)
         {
-            age = providedAge;
-        }
-        else
-        {
-            // Kast et unntak
             throw new IllegalArgumentException();
         }
 
-    }
-    // Set method for student name.
-    public void setStudentName(String providedName)
-    {
-        studentName = providedName;
-    }
-    // Set method for academic field
-    public void setAcademicField(String providedAcademicField)
-    {
-        academicField = providedAcademicField;
-    }
-    // Set method for student number
-    public void setStudentNumber(int providedStudentNumber)
-    {
-        if(providedStudentNumber >= 100000)
-        {
-            studentNumber = providedStudentNumber;
-        }
+        age = providedAge;
     }
 
-    /*
-    public void setStudentInfo(String providedStudentName, int providedStudentAge, int providedStudentNumber, String providedStudyProgram)
-    {
-        setStudentName(providedStudentName);
-        setAge(providedStudentAge);
-        setStudentNumber(providedStudentNumber);
-        setAcademicField(providedStudyProgram);
-    }
+    /**
+     * This method is used to set the name of a student.
+     * If the parameter providedName is empty, or contains numbers
+     * the program will throw an exception
+     * @param providedName
      */
+    public void setStudentName(String providedName)
+    {
+        if(providedName.isEmpty() || providedName.matches(".*[[0-9]!#$%&/()=?`^*_:;>].*"))
+        {
+            throw new IllegalArgumentException();
+        }
+
+        studentName = providedName;
+    }
+
+    /**
+     * Method used to set the academicField, if parameter is empty,
+     * or contains nymbers. The program will throw an exception.
+     * @param providedAcademicField
+     */
+    public void setAcademicField(String providedAcademicField)
+    {
+        if(providedAcademicField.isEmpty() || providedAcademicField.matches(".*[[0-9]!#$%&/()=?`^*_:;>].*"))
+        {
+            throw new IllegalArgumentException();
+        }
+
+        academicField = providedAcademicField;
+    }
+
+    /**
+     * This method is used to set student number.
+     * If student number is less than 100000, an exception will be thrown
+     * @param providedStudentNumber
+     */
+    public void setStudentNumber(int providedStudentNumber)
+    {
+        if(providedStudentNumber < 100000)
+        {
+            throw new IllegalArgumentException();
+        }
+
+        studentNumber = providedStudentNumber;
+    }
 }
