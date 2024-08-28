@@ -11,16 +11,14 @@ public class Administration
         System.out.println("Please enter name: ");
         String nameInput = input.nextLine();
 
-        System.out.println("Please enter age: ");
-        String ageInput = input.nextLine();
-
-        System.out.println("Please enter student number: ");
-        String numberInput = input.nextLine();
-
         System.out.println("Please enter study program: ");
         String programInput = input.nextLine();
 
+        System.out.println("Please enter age: ");
+        int ageInput = input.nextInt();
 
+        System.out.println("Please enter student number: ");
+        int numberInput = input.nextInt();
 
         Student bidataStudent1 = new Student();
 
@@ -34,7 +32,7 @@ public class Administration
 
         try
         {
-            bidataStudent1.setAge(22);
+            bidataStudent1.setAge(ageInput);
         }
         catch(IllegalArgumentException i)
         {
@@ -43,7 +41,7 @@ public class Administration
 
         try
         {
-            bidataStudent1.setAcademicField("BIDATA");
+            bidataStudent1.setAcademicField(programInput);
         }
         catch(IllegalArgumentException i)
         {
@@ -52,7 +50,7 @@ public class Administration
 
         try
         {
-            bidataStudent1.setStudentNumber(100256);
+            bidataStudent1.setStudentNumber(numberInput);
         }
         catch(IllegalArgumentException i)
         {
