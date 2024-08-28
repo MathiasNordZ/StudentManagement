@@ -3,20 +3,32 @@ public class Administration
 {
     public static void main(String[] args)
     {
+
+        // Input age equal to or above 17, else it will ouput an error.
+
         Student bidataStudent1 = new Student();
-        Student bidataStudent2 = new Student();
-        Student bidataStudent3 = new Student();
-        Student bidataStudent4 = new Student();
 
-        // setAllValues(String, int, int, String)
-        bidataStudent1.setStudentInfo("Mathias", 21, 12345, "BIDATA");
 
-        int studentAge = bidataStudent1.getAge();
-        String studentName = bidataStudent1.getStudentName();
-        String academicField = bidataStudent1.getAcademicField();
+        bidataStudent1.setStudentName("Mathias");
+        String nameOfStudent = bidataStudent1.getStudentName();
 
-        System.out.println("####################################");
-        System.out.println("My name is " + studentName + ", I am " + studentAge + " years old, and I am studying " + academicField);
-        System.out.println("####################################");
+        if (nameOfStudent.equals("John"))
+        {
+            System.out.println("Navnet er likt");
+        }
+        else
+        {
+            System.out.println("Navnet er forskjellig");
+        }
+
+        try
+        {
+            bidataStudent1.setAge(18);
+            System.out.println(bidataStudent1.getAge());
+        }
+        catch(IllegalArgumentException i)
+        {
+            System.out.println("Object was not created. Invalid input given." + i);
+        }
     }
 }
